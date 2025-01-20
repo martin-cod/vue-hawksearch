@@ -1,7 +1,7 @@
 <template>
-    <div class="image-search-field">
+    <div v-if="visible" class="image-search-field">
         <h3>Image Search</h3>
-        <button @click="closeImageSearch" class="close-image-search-btn">
+        <button class="close-image-search-btn" @click="closeImageSearch">
             <CloseIconSvg/>
         </button>
 
@@ -54,6 +54,12 @@ import ImageSearchIconSvg from "../svg/ImageSearchIconSvg";
 
 export default {
     name: 'SearchBoxImage',
+    props: {
+        visible: {
+            type: Boolean,
+            default: false
+        }
+    },
     components: {
         CloseIconSvg,
         UploadIconSvg,
@@ -125,10 +131,7 @@ export default {
             this.images.splice(index, 1);
         },
         closeImageSearch() {
-            this.imageSearchVisible = false;
-
-            this.imageKeyword = null;
-            this.images = [];
+            this.$emit('update:visible', false);
         },
         onImageKeywordKeyDown(event) {
             if (event.key === 'Enter') {

@@ -1,6 +1,9 @@
 <template>
     <div class="hawk__searchBox" @click.stop="">
-        <SearchBoxImage v-if="imageSearchVisible" :visible="imageSearchVisible" />
+        <SearchBoxImage
+            :visible="imageSearchVisible"
+            @update:visible="imageSearchVisible = $event"
+        />
 
         <div class="hawk__searchFull smart-search">
             <span class="hawk__line search-input">
