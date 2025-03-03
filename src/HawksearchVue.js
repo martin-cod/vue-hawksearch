@@ -3,6 +3,7 @@ import { mapState } from 'vuex';
 import { getI18n } from './i18n';
 import { getParamName, parseURLparams, updateUrl } from './QueryString';
 import SearchBox from './components/search-box/SearchBox';
+import SearchBoxSmart from './components/search-box/SearchBoxSmart';
 import FacetList from './components/facets/FacetList.vue';
 import Results from './components/results/Results.vue';
 import PageContent from './components/results/PageContent.vue';
@@ -174,6 +175,7 @@ class HawksearchVue {
         // Merge passed components with defaults
         components = Object.assign({}, {
             SearchBox,
+            SearchBoxSmart,
             FacetList,
             Results,
             PageContent,
